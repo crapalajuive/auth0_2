@@ -44,6 +44,6 @@
     ]
   },
   "homepage": "https://crapalajuive.github.io/auth0_2/",
-  "proxy": "http://54.90.204.15",
+  "proxy": "http://54.90.204.15:80",
   "displayName": "final"
 }
