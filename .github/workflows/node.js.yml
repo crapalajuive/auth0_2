@@ -1,5 +1,4 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+# Treating warnings as errors because process.env.CI = true
 
 name: Auth0_2 CI
 
@@ -24,12 +23,13 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'yarn'
+        cache: 'npm'
 
-#        cache: 'npm'
-#    - run: npm ci
+#        cache: 'yarn'
 
-    - run: yarn install --frozen-lockfile
+    - run: npm ci
+
+#    - run: yarn install --frozen-lockfile
 
     - name: Check if CNAME exists
       id: check-cname
@@ -54,15 +54,16 @@ jobs:
           echo "REACT_APP_GITHUB_REPO=${{ github.event.repository.name }}" >> $GITHUB_OUTPUT
         fi
 
-#        npm run build --if-present
+#        yarn build
     - name: npm or yarn build
       run: |
         echo "repo name?: ${REACT_APP_GITHUB_REPO}"
-        yarn build
+        npm run build --if-present
       env:
           REACT_APP_AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN_C }}
           REACT_APP_AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID_C }}
           REACT_APP_GITHUB_REPO: ${{steps.set-repo.outputs.REACT_APP_GITHUB_REPO}}
+          CI: false
 #          REACT_APP_GITHUB_REPO: "auth0_1"
 #          REACT_APP_GITHUB_REPO: ${{ github.event.repository.name }}
     # - run: npm test
