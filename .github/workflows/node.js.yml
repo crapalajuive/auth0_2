@@ -24,10 +24,11 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-#        cache: 'npm'
         cache: 'yarn'
 
+#        cache: 'npm'
 #    - run: npm ci
+
     - run: yarn install --frozen-lockfile
 
     - name: Check if CNAME exists
@@ -53,10 +54,10 @@ jobs:
           echo "REACT_APP_GITHUB_REPO=${{ github.event.repository.name }}" >> $GITHUB_OUTPUT
         fi
 
+#        npm run build --if-present
     - name: npm or yarn build
       run: |
         echo "repo name?: ${REACT_APP_GITHUB_REPO}"
-#        npm run build --if-present
         yarn build
       env:
           REACT_APP_AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN_C }}
