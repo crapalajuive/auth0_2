@@ -58,6 +58,8 @@ const navigate = useNavigate();
                   <Route path="/">
                     <Route index element={<Navigate to="/auth0_2" replace />} />
 
+                      <Route exact path={ghrepo} element={<Home/>} />
+
 */}
 
 const ghrepo = process.env.REACT_APP_GITHUB_REPO;
@@ -70,7 +72,6 @@ const App = () => {
           <Header/>
           <Wrapper>
               <Routes>
-                      <Route exact path={ghrepo} element={<Home/>} />
                       <Route path="/" element={<Home/>} />
                       <Route path="/wines" element={<Wines/>} />
                       <Route path="/wines/:wineId" element={<WineDetails/>} />
