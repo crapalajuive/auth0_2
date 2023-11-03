@@ -50,8 +50,8 @@ jobs:
           echo "CNAME file exists, set repo to nothing"
           echo "REACT_APP_GITHUB_REPO=''" >> $GITHUB_OUTPUT
         else
-          echo "CNAME file does not exist, setting REACT_APP_GITHUB_REPO=${{ github.event.repository.name }}"
-          echo "REACT_APP_GITHUB_REPO=${{ github.event.repository.name }}" >> $GITHUB_OUTPUT
+          echo "CNAME file does not exist, setting REACT_APP_GITHUB_REPO=/${{ github.event.repository.name }}"
+          echo "REACT_APP_GITHUB_REPO=/${{ github.event.repository.name }}" >> $GITHUB_OUTPUT
         fi
 
 #        yarn build
