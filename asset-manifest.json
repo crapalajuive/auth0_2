@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/auth0_2/static/css/main.635a751a.css",
-    "main.js": "/auth0_2/static/js/main.b647a3df.js",
+    "main.js": "/auth0_2/static/js/main.b5d6a162.js",
     "static/media/patus.jpeg": "/auth0_2/static/media/patus.c19a79527c51d6f815d7.jpeg",
     "static/media/superbloom.jpeg": "/auth0_2/static/media/superbloom.6340bf78ffea2a544c28.jpeg",
     "static/media/barbaresco.jpeg": "/auth0_2/static/media/barbaresco.d44108c0ec21e7bad1db.jpeg",
@@ -87,10 +87,10 @@
     "static/media/Auth0Context.js.org": "/auth0_2/static/media/Auth0Context.js.a0134e9170318b9abde8.org",
     "static/media/Auth0Provider.js.org": "/auth0_2/static/media/Auth0Provider.js.38edbe6f8f386c7dc4e6.org",
     "main.635a751a.css.map": "/auth0_2/static/css/main.635a751a.css.map",
-    "main.b647a3df.js.map": "/auth0_2/static/js/main.b647a3df.js.map"
+    "main.b5d6a162.js.map": "/auth0_2/static/js/main.b5d6a162.js.map"
   },
   "entrypoints": [
     "static/css/main.635a751a.css",
-    "static/js/main.b647a3df.js"
+    "static/js/main.b5d6a162.js"
   ]
 }
