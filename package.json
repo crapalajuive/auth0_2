@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^2.2.0",
-    "npm": "^10.2.2",
+    "npm": "^10.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
@@ -45,6 +45,6 @@
     ]
   },
   "homepage": "https://crapalajuive.github.io/auth0_2/",
-  "proxy": "http://54.160.63.221:80",
+  "proxy": "http://codesamples.xyz:8000",
   "displayName": "final"
 }
