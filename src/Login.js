@@ -7,7 +7,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 
 const Login = ({setUserId}) => {
         const [allUsers, setAllUsers] = useState([]);
-    
+
         // useEffect(() => {
         //     fetch("/users")
         //         .then((res) => res.json())
@@ -63,11 +63,11 @@ const Login = ({setUserId}) => {
 
             // const res = await fetch(`/users/${userId}`, {
             const res = await fetch('/login', {
-                method: 'POST', 
+                method: 'POST',
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json"
-                }, 
+                },
                 body: JSON.stringify({  ...dataBody })
             })
             .then(res => res.json())
@@ -97,22 +97,22 @@ const Login = ({setUserId}) => {
                 <Container>
                     <StyledForm onSubmit={(e) => handleSubmit(e)}>
                         <TitleLabel>Login</TitleLabel>
-    
-                            <Input 
-                                type="email" 
+
+                            <Input
+                                type="email"
                                 placeholder="Email"
                                 name="email"
                                 required={true}
-                                onChange={handleChange} 
+                                onChange={handleChange}
                             />
-                                 <Input 
-                                type="password" 
+                                 <Input
+                                type="password"
                                 placeholder="Password"
                                 name={"password"}
                                 required={true}
-                                onChange={handleChange} 
+                                onChange={handleChange}
                             />
-                
+
                         <ButtonContainer>
                             <Submit type="submit" disabled={Object.keys(login).length < 2}>Login</Submit>
                         </ButtonContainer>
