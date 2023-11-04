@@ -1,7 +1,7 @@
 import './App.css';
 
 import {
-   HashRouter,
+   BrowserRouter,
    Route,
    Routes
 } from "react-router-dom";
@@ -30,6 +30,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import Grapes from './Grapes';
 // import Regions from './Regions';
 // import BrowseByStyle from './BrowseByStyle';
+
+   HashRouter,
 */}
 
 
@@ -67,7 +69,7 @@ const ghrepo = process.env.REACT_APP_GITHUB_REPO;
 const App = () => {
 
   return (
-      <HashRouter>
+      <BrowserRouter>
       <GlobalStyles />
           <Header/>
           <Wrapper>
@@ -83,7 +85,7 @@ const App = () => {
                       <Route path="*" element={<h1>404: Oops!</h1>} />
               </Routes>
           </Wrapper>
-      </HashRouter>
+      </BrowserRouter>
   );
 };
 
