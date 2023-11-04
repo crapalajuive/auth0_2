@@ -45,6 +45,6 @@
     ]
   },
   "homepage": "/auth0_2",
-  "proxy": "http://codesamples.xyz:8001",
+  "proxy": "http://codesamples.xyz:8000",
   "displayName": "final"
 }
