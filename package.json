@@ -47,7 +47,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "/auth0_2",
-  "proxy": "http://codesamples.xyz:8000",
+  "homepage": "https://crapalajuive.github.io/auth0_2",
+  "proxy": "http://wine-site-backend-production.up.railway.app",
   "displayName": "final"
 }
