@@ -62,9 +62,14 @@ const navigate = useNavigate();
 
                       <Route exact path={ghrepo} element={<Home/>} />
 
+// const srvurl = process.env.REACT_APP_SERVER_URL;
+`${srvurl}/`
+`${srvurl}/wines`
+const ghrepo = process.env.REACT_APP_GITHUB_REPO;
+    const baseUrl = process.env.REACT_APP_SERVER_URL;
+
 */}
 
-const ghrepo = process.env.REACT_APP_GITHUB_REPO;
 
 const App = () => {
 

@@ -7,6 +7,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Favorites = ({fetchFavorites, favorites, setFavorites}) => {
 
+    const baseUrl = process.env.REACT_APP_SERVER_URL;
 
     const navigate = useNavigate();
     const params = useParams();
@@ -37,7 +38,7 @@ const Favorites = ({fetchFavorites, favorites, setFavorites}) => {
 
     const addNote = (userNote, favoriteId) => {
         // debugger
-        fetch('/favorites/notes', {
+        fetch(`${baseUrl}/favorites/notes`, {
             method: 'PATCH',
             headers: {
                 "Accept": "application/json",

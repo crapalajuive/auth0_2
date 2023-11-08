@@ -9,6 +9,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 const Wines = () => {
+
+    const baseUrl = process.env.REACT_APP_SERVER_URL;
     const { user } = useAuth0();
     const [allWines, setAllWines] = useState("");
     const { setFavorites, userId } = useContext(UserContext);
@@ -23,7 +25,7 @@ const Wines = () => {
 
     const addToFavorites = ( wine ) => {
         debugger
-            fetch('/favorites', {
+            fetch(`${baseUrl}/favorites`, {
                 method: 'PATCH',
                 headers: {
                     "Accept": "application/json",
@@ -39,14 +41,14 @@ const Wines = () => {
     }
 
     useEffect(() => {
-        fetch("/wines")
+        fetch(`${baseUrl}/wines`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.data);
                 setAllWines(data.data);
             })
             .catch(error => {
-                console.log("error")
+                console.log("get wines: " + baseUrl + "/wines")
             })
     }, []);
 

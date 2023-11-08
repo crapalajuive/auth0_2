@@ -7,13 +7,14 @@ import { useNavigate } from "react-router-dom";
 
 
 const Producers = () => {
+    const baseUrl = process.env.REACT_APP_SERVER_URL;
     const [allProducers, setAllProducers] = useState("");
-    
+
 
     let navigate = useNavigate();
 
     useEffect(() => {
-        fetch("/producers")
+        fetch(`${baseUrl}/producers`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.data);
@@ -33,7 +34,7 @@ const Producers = () => {
                 allProducers.map((producer) => {
                     const handleClick = (e) => {
                         e.preventDefault();
-    
+
                         navigate(`/producers/${producer._id}`);
                     }
                     // const regionHandleClick = (e) => {
@@ -48,8 +49,8 @@ const Producers = () => {
 
                         <p>{producer.bio}</p>
                         </Container>
-    
-                    </ul> 
+
+                    </ul>
                     )
                 })
             )
@@ -58,7 +59,7 @@ const Producers = () => {
                 )}
                 </Wrapper>
         </>
-    
+
     )
     };
 

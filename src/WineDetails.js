@@ -6,6 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 const WineDetails = () => {
+    const baseUrl = process.env.REACT_APP_SERVER_URL;
     const { user } = useAuth0();
     const [wine, setWine] = useState([]);
     const params = useParams();
@@ -15,7 +16,7 @@ const WineDetails = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`/wines/${wineId}`)
+        fetch(`${baseUrl}/wines/${wineId}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data.data);
@@ -30,15 +31,15 @@ const WineDetails = () => {
             e.preventDefault();
             navigate(`/producers/${wine.producerId}`);
         }
-    
+
         const addToFavorites = ( wine ) => {
             debugger
-                fetch('/favorites', {
-                    method: 'PATCH', 
+                fetch(`${baseUrl}/favorites`, {
+                    method: 'PATCH',
                     headers: {
                         "Accept": "application/json",
                         "Content-Type": "application/json"
-                    }, 
+                    },
                     body: JSON.stringify({ updatedFavorite: wine, _id: JSON.parse(localStorage.getItem("userId"))._id, user: user })
                 })
                 .then(res => res.json())
@@ -57,20 +58,20 @@ const WineDetails = () => {
                 <Image src={require (`${wine.imageSrc}`)} alt={wine._id} />
                 <Image2 src={require (`${wine.imageSrc}`)} alt={wine._id} />
                 <Container>
-                    <h3>{wine.name}</h3> 
-                    <Button onClick={handleClick}>{wine.producer}</Button> 
-                    <> 
+                    <h3>{wine.name}</h3>
+                    <Button onClick={handleClick}>{wine.producer}</Button>
+                    <>
                     {user === undefined ? <></> :  <Button onClick={() => addToFavorites(wine)}>Add to favorites!</Button> }
                     </>
-            
+
                     <p> $ {wine.price}</p>
                     <p><Bold>{wine.grapes}</Bold> from {wine.region}</p>
                     <p>{wine.category}</p>
-                    
-                    
+
+
                     <p>{wine.notes}</p>
                     <p>{wine.method}</p>
-                    
+
                     </Container>
                     {/* <Button onClick={handleClick}>{wine.producer}</Button> */}
 

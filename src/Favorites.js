@@ -8,7 +8,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Favorites = () => {
 
-
+    const baseUrl = process.env.REACT_APP_SERVER_URL;
     const navigate = useNavigate();
     const params = useParams();
     const userId = params.userId;
@@ -23,7 +23,7 @@ const Favorites = () => {
     // const [visible, setVisible] = useState(false);
 
     const fetchFavorites = () => {
-        fetch(`/favorites/${userId}`)
+        fetch(`${baseUrl}/favorites/${userId}`)
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data.data);
@@ -36,7 +36,7 @@ const Favorites = () => {
 
     const addNote = (userNote, favoriteId) => {
         // debugger
-        fetch('/favorites/notes', {
+        fetch(`${baseUrl}/favorites/notes`, {
             method: 'PATCH',
             headers: {
                 "Accept": "application/json",
@@ -69,7 +69,7 @@ const Favorites = () => {
 
     return (
         <>
-        <Wrapper> 
+        <Wrapper>
         <FavoritesDetails fetchFavorites={fetchFavorites} favorites={favorites} setFavorites={setFavorites}/>
          {/* <Button onClick={showNotesBox}>Leave a note</Button>
                                     {visible && (
@@ -87,7 +87,7 @@ const Favorites = () => {
         </Wrapper>
 
             {/* <Wrapper> */}
-                
+
                 {/* <FavoritesDetails /> */}
                 {/* {justFavorites !== undefined ? (
                     justFavorites.map((wine) => {
@@ -112,7 +112,7 @@ const Favorites = () => {
                                 <Button onClick={handleClick}>View details</Button>
                                 <Button onClick={showNotesBox}>Leave a note</Button>
                                 <Button onClick={showNotesBox}>See notes</Button>
-                                
+
                                     <NotesBox>
                                         <Input
                                             type="text"
@@ -127,12 +127,12 @@ const Favorites = () => {
                                         <>{wine.userNotes}</>
                                         // wine.map((notes) => {
                                         //     <>{notes}</>
-                                        // }) 
+                                        // })
                                 )}
 
                             </ButtonsBox>
                         </Box> */}
-                    
+
                         {/* )
                     })
                 )

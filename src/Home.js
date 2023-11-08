@@ -10,19 +10,20 @@ const ghrepo = process.env.REACT_APP_GITHUB_REPO;
 
 const Home = () => {
 
+    const baseUrl = process.env.REACT_APP_SERVER_URL;
     const [wines, setWines] = useState([]);
 
     let navigate = useNavigate();
 
     useEffect(() => {
-        fetch("/wines")
+        fetch(`${baseUrl}/wines`)
             .then((res) => res.json())
             .then((data) => {
                 {/* console.log(data.data); */}
                 setWines(data.data);
             })
             .catch(error => {
-                console.log("error");
+                console.log(baseUrl);
               })
     }, []);
 
