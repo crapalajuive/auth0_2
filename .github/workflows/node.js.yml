@@ -63,7 +63,8 @@ jobs:
           REACT_APP_AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN_C }}
           REACT_APP_AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID_C }}
           REACT_APP_GITHUB_REPO: ${{steps.set-repo.outputs.REACT_APP_GITHUB_REPO}}
-          REACT_APP_WEBSITE_NAME: env_title
+          REACT_APP_WEBSITE_NAME: wine info
+          REACT_APP_SERVER_URL: http://codesamples.xyz:8000
           CI: false
 #          REACT_APP_GITHUB_REPO: "auth0_1"
 #          REACT_APP_GITHUB_REPO: ${{ github.event.repository.name }}
@@ -80,5 +81,6 @@ jobs:
           REACT_APP_AUTH0_DOMAIN: ${{ secrets.AUTH0_DOMAIN_C }}
           REACT_APP_AUTH0_CLIENT_ID: ${{ secrets.AUTH0_CLIENT_ID_C }}
           REACT_APP_GITHUB_REPO: ${{steps.set-repo.outputs.REACT_APP_GITHUB_REPO}}
-          REACT_APP_WEBSITE_NAME: env_title
+          REACT_APP_WEBSITE_NAME: wine info
+          REACT_APP_SERVER_URL: http://codesamples.xyz:8000
           CI: false
